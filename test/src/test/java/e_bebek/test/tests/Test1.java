@@ -34,18 +34,18 @@ public class Test1 {
 		JavascriptExecutor executor = (JavascriptExecutor)driver;
 		
 		
-		driver.get("https://e-bebek.com/");
+		driver.get("https://e-bebek.com/");//go website
 		driver.manage().window().setSize(new Dimension(1051, 846));
-	    Thread.sleep(2000);  // Let the user actually see something! 
-	    WebElement searchBox = driver.findElement(By.id("txtSearchBox"));
+	    Thread.sleep(2000); //waiting main page
+	    WebElement searchBox = driver.findElement(By.id("txtSearchBox"));//click searchbox
 	    driver.findElement(By.cssSelector(".search-wrapper")).click();
-	    driver.findElement(By.id("txtSearchBox")).sendKeys("biberon");
+	    driver.findElement(By.id("txtSearchBox")).sendKeys("biberon");//write biberon and seach
 	    driver.findElement(By.id("txtSearchBox")).sendKeys(Keys.ENTER);
 	    executor.executeScript("window.scrollTo(0,244)");
-	   // driver.findElement(By.id("addToCartBtn")).click();//I cant find the right cartButton
+	    driver.findElement(By.id("addToCartBtn")).click();//I cant find the right cartButton
 	    driver.findElement(By.id("btnShowCart")).click();
 
-	    Thread.sleep(5000);  // Let the user actually see something! 
+	   
 	    WebElement element = driver.findElement(By.cssSelector(".col-6:nth-child(3) .product-item-anchor .product-item-content"));
 	    Actions builder = new Actions(driver);
 	    builder.moveToElement(element).perform();
